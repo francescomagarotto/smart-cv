@@ -1,0 +1,15 @@
+\section{Education}
+    \resumeSubHeadingListStart
+
+<% for d in degrees %>
+    \resumeSubheading
+    {<< esc(d.institution) >>}{<< esc(d.dates) >>}
+    {<< esc(d.degree) >>}{<< esc(d.location) >>}
+    \resumeItemListStart
+<% for bullet in d.bullets %>
+        \resumeItem{<< inline(bullet) >>}
+<% endfor %>
+    \resumeItemListEnd
+
+<% endfor %>
+    \resumeSubHeadingListEnd

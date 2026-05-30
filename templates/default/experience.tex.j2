@@ -1,0 +1,35 @@
+\section{Work Experience}
+\resumeSubHeadingListStart
+
+<% for r in roles %>
+<% if r.pagebreak %>
+    \newpage
+<% endif %>
+    \resumeSubheading
+    {<< inline(r.company) >>}{<< esc(r.dates) >>}
+    {<< inline(r.role) >>}{<< esc(r.location) >>}
+    \resumeItemListStart
+<% for bullet in r.bullets %>
+        \resumeItem{<< inline(bullet) >>}
+<% endfor %>
+    \resumeItemListEnd
+
+<% endfor %>
+\resumeSubHeadingListEnd
+
+
+\section{Selected Projects}
+
+\resumeSubHeadingListStart
+
+<% for p in projects %>
+\resumeSubheading
+{<< inline(p.name) >>}{}{<< esc(p.kind) >>}{}
+    \resumeItemListStart
+<% for bullet in p.bullets %>
+        \resumeItem{<< inline(bullet) >>}
+<% endfor %>
+    \resumeItemListEnd
+
+<% endfor %>
+\resumeSubHeadingListEnd

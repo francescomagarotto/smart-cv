@@ -1,0 +1,9 @@
+tex/
+*.pdf
+*.aux
+*.log
+*.out
+*.toc
+curriculum-py/.venv/
+__pycache__/
+.git/
