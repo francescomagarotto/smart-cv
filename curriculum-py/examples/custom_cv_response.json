@@ -1,0 +1,92 @@
+{
+  "status": "ok",
+  "tailored_cv": {
+    "summary": "Senior Data Engineer with 8+ years building large-scale batch and streaming pipelines on AWS and GCP. Led the migration of a 200 TB data warehouse to Snowflake, reducing query latency by 60%. Experienced with Apache Kafka, dbt, Spark, and Airflow; strong focus on data quality, observability, and platform reliability.",
+    "core_competencies": "- Streaming & Batch Pipeline Design\n- Data Warehouse Modelling (Snowflake, BigQuery)\n- Apache Kafka & Event-Driven Architectures\n- dbt Data Transformation\n- AWS / GCP Cloud Infrastructure\n- Observability & Data Quality Frameworks\n- Cross-functional Stakeholder Collaboration\n- Agile / Scrum Engineering Practices",
+    "skills": "## Languages\nPython, SQL, Scala\n## Data Platforms\nSnowflake, BigQuery, Redshift\n## Streaming\nApache Kafka, AWS Kinesis\n## Orchestration\nApache Airflow, Prefect\n## Transformation\ndbt, Spark\n## Cloud\nAWS (S3, Glue, Lambda), GCP (Dataflow, Pub/Sub)\n## Observability\nDatadog, Great Expectations, Monte Carlo",
+    "experience": "## Acme Corp\n**Senior Data Engineer**\nJan 2021 – Present | Remote\n\n- Designed and operated Kafka-based event streaming pipelines ingesting 50 M events/day with sub-second latency.\n- Migrated 200 TB data warehouse from Redshift to Snowflake; improved average query time by 60%.\n- Built dbt modelling layer covering 300+ models with automated testing via Great Expectations.\n- Reduced pipeline incident rate by 40% through Datadog SLO dashboards and alerting."
+  },
+  "parsed_jd": {
+    "url": "https://boards.greenhouse.io/stripe/jobs/example-data-engineer-12345",
+    "title": "Senior Data Engineer",
+    "company": "Stripe",
+    "sector": "Technology / FinTech",
+    "functional_area": "Data Engineering",
+    "must_haves": [
+      "5+ years of data engineering experience",
+      "Strong SQL and Python skills",
+      "Experience with streaming systems (Kafka or Kinesis)",
+      "Cloud data warehouse experience (Snowflake or BigQuery)"
+    ],
+    "nice_to_haves": [
+      "Experience with dbt",
+      "Familiarity with financial data domains",
+      "Contributions to open-source data tools"
+    ],
+    "tech_stack": [
+      "Apache Kafka",
+      "Snowflake",
+      "dbt",
+      "Airflow",
+      "Python",
+      "SQL",
+      "AWS",
+      "Spark"
+    ],
+    "ats_keywords": [
+      "Apache Kafka",
+      "Snowflake",
+      "dbt",
+      "Airflow",
+      "Python",
+      "SQL",
+      "AWS",
+      "Spark",
+      "data pipeline",
+      "streaming",
+      "data warehouse",
+      "ETL",
+      "ELT",
+      "data quality",
+      "observability"
+    ]
+  },
+  "ats_report": {
+    "coverage_score": 86.7,
+    "total_keywords": 15,
+    "matched_keywords": 13,
+    "keyword_table": [
+      {"keyword": "Apache Kafka", "present": true, "location": "experience"},
+      {"keyword": "Snowflake", "present": true, "location": "skills"},
+      {"keyword": "dbt", "present": true, "location": "skills"},
+      {"keyword": "Airflow", "present": true, "location": "skills"},
+      {"keyword": "Python", "present": true, "location": "skills"},
+      {"keyword": "SQL", "present": true, "location": "skills"},
+      {"keyword": "AWS", "present": true, "location": "skills"},
+      {"keyword": "Spark", "present": true, "location": "skills"},
+      {"keyword": "data pipeline", "present": true, "location": "experience"},
+      {"keyword": "streaming", "present": true, "location": "experience"},
+      {"keyword": "data warehouse", "present": true, "location": "experience"},
+      {"keyword": "ETL", "present": false, "location": null},
+      {"keyword": "ELT", "present": false, "location": null},
+      {"keyword": "data quality", "present": true, "location": "experience"},
+      {"keyword": "observability", "present": true, "location": "experience"}
+    ],
+    "gap_analysis": [
+      {
+        "keyword": "ETL",
+        "classification": "fillable",
+        "suggestion": "Add 'ETL' to the skills section alongside existing pipeline terms."
+      },
+      {
+        "keyword": "ELT",
+        "classification": "fillable",
+        "suggestion": "Add 'ELT' near the dbt and Snowflake mentions to reflect modern reverse-ETL patterns."
+      }
+    ],
+    "structural_issues": []
+  },
+  "branch_name": "cv/stripe-data-engineer",
+  "warnings": [],
+  "errors": []
+}

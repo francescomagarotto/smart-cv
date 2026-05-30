@@ -1,0 +1,21 @@
+{
+  "name": "cv-skill",
+  "version": "0.1.0",
+  "description": "Model-agnostic CV tailoring pipeline for LaTeX CVs",
+  "runtime": {
+    "type": "python",
+    "package": "cv_skill",
+    "entrypoint": "cv-skill"
+  },
+  "schemas": {
+    "request": "schemas/request.schema.json",
+    "response": "schemas/response.schema.json"
+  },
+  "instructions": ".claude/skills/custom-cv/SKILL.md",
+  "adapters": {
+    "openai": "adapters/openai_compatible.py",
+    "qwen": "adapters/openai_compatible.py",
+    "deepseek": "adapters/openai_compatible.py",
+    "anthropic": "adapters/anthropic_tool.py"
+  }
+}

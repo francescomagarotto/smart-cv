@@ -1,0 +1,6 @@
+{
+  "task": "custom_cv",
+  "job_url": "https://boards.greenhouse.io/stripe/jobs/example-data-engineer-12345",
+  "branch_slug": "stripe-data-engineer",
+  "cv_dir": "content"
+}

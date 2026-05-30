@@ -340,3 +340,9 @@ tex/custom-commands.tex
 # Scrapy output
 *.json
 *.csv
+
+# Allow project config/schema JSON files
+!pyrightconfig.json
+!curriculum-py/manifest.json
+!curriculum-py/schemas/*.json
+!curriculum-py/examples/*.json

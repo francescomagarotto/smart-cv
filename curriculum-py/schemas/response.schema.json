@@ -1,0 +1,289 @@
+{
+  "$defs": {
+    "ATSReport": {
+      "description": "Full ATS audit result.\n\nAttributes:\n    coverage_score: Percentage of JD keywords found in the CV (0\u2013100).\n    total_keywords: Total number of JD keywords checked.\n    matched_keywords: Number of keywords found in the CV.\n    keyword_table: Per-keyword match details.\n    gap_analysis: Classification of missing keywords.\n    structural_issues: Human-readable list of structural problems.",
+      "properties": {
+        "coverage_score": {
+          "title": "Coverage Score",
+          "type": "number"
+        },
+        "total_keywords": {
+          "title": "Total Keywords",
+          "type": "integer"
+        },
+        "matched_keywords": {
+          "title": "Matched Keywords",
+          "type": "integer"
+        },
+        "keyword_table": {
+          "items": {
+            "$ref": "#/$defs/KeywordMatch"
+          },
+          "title": "Keyword Table",
+          "type": "array"
+        },
+        "gap_analysis": {
+          "items": {
+            "$ref": "#/$defs/GapAnalysis"
+          },
+          "title": "Gap Analysis",
+          "type": "array"
+        },
+        "structural_issues": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Structural Issues",
+          "type": "array"
+        }
+      },
+      "required": [
+        "coverage_score",
+        "total_keywords",
+        "matched_keywords",
+        "keyword_table",
+        "gap_analysis",
+        "structural_issues"
+      ],
+      "title": "ATSReport",
+      "type": "object"
+    },
+    "GapAnalysis": {
+      "description": "Classification of a missing ATS keyword.\n\nAttributes:\n    keyword: The missing keyword.\n    classification: One of ``\"fillable\"``, ``\"stretchable\"``, or\n        ``\"genuine_gap\"``.\n    suggestion: Optional actionable suggestion for the candidate.",
+      "properties": {
+        "keyword": {
+          "title": "Keyword",
+          "type": "string"
+        },
+        "classification": {
+          "enum": [
+            "fillable",
+            "stretchable",
+            "genuine_gap"
+          ],
+          "title": "Classification",
+          "type": "string"
+        },
+        "suggestion": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Suggestion"
+        }
+      },
+      "required": [
+        "keyword",
+        "classification"
+      ],
+      "title": "GapAnalysis",
+      "type": "object"
+    },
+    "KeywordMatch": {
+      "description": "Result of matching a single ATS keyword against the CV text.\n\nAttributes:\n    keyword: The keyword that was searched for.\n    present: Whether the keyword was found in the CV text.\n    location: Which CV section contained the first match, or ``None``.",
+      "properties": {
+        "keyword": {
+          "title": "Keyword",
+          "type": "string"
+        },
+        "present": {
+          "title": "Present",
+          "type": "boolean"
+        },
+        "location": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Location"
+        }
+      },
+      "required": [
+        "keyword",
+        "present"
+      ],
+      "title": "KeywordMatch",
+      "type": "object"
+    },
+    "ParsedJD": {
+      "description": "Structured representation of a parsed job description.\n\nAttributes:\n    url: Canonical URL of the job posting.\n    title: Job title extracted from the posting.\n    company: Company name.\n    sector: Industry sector, e.g. ``\"Technology / Software\"``.\n    functional_area: Functional role area, e.g. ``\"Data Engineering\"``.\n    must_haves: Hard requirements listed in the JD.\n    nice_to_haves: Preferred but not required qualifications.\n    tech_stack: Specific technologies, frameworks, and tools mentioned.\n    ats_keywords: Deduplicated flat list of all ATS-relevant keywords.",
+      "properties": {
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "company": {
+          "title": "Company",
+          "type": "string"
+        },
+        "sector": {
+          "title": "Sector",
+          "type": "string"
+        },
+        "functional_area": {
+          "title": "Functional Area",
+          "type": "string"
+        },
+        "must_haves": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Must Haves",
+          "type": "array"
+        },
+        "nice_to_haves": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Nice To Haves",
+          "type": "array"
+        },
+        "tech_stack": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Tech Stack",
+          "type": "array"
+        },
+        "ats_keywords": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Ats Keywords",
+          "type": "array"
+        }
+      },
+      "required": [
+        "url",
+        "title",
+        "company",
+        "sector",
+        "functional_area",
+        "must_haves",
+        "nice_to_haves",
+        "tech_stack",
+        "ats_keywords"
+      ],
+      "title": "ParsedJD",
+      "type": "object"
+    },
+    "TailoredCV": {
+      "description": "Rewritten CV sections produced by the LLM tailoring step.\n\nAttributes:\n    summary: Rewritten summary paragraph.\n    core_competencies: Rewritten competency list.\n    skills: Rewritten skills section.\n    experience: Rewritten experience bullets.",
+      "properties": {
+        "summary": {
+          "title": "Summary",
+          "type": "string"
+        },
+        "core_competencies": {
+          "title": "Core Competencies",
+          "type": "string"
+        },
+        "skills": {
+          "title": "Skills",
+          "type": "string"
+        },
+        "experience": {
+          "title": "Experience",
+          "type": "string"
+        }
+      },
+      "required": [
+        "summary",
+        "core_competencies",
+        "skills",
+        "experience"
+      ],
+      "title": "TailoredCV",
+      "type": "object"
+    }
+  },
+  "description": "Response payload for the ``custom-cv`` skill.\n\nAttributes:\n    status: ``\"ok\"`` on success, ``\"error\"`` on failure.\n    tailored_cv: Rewritten CV sections, populated on success.\n    parsed_jd: Parsed job description, populated on success.\n    ats_report: ATS audit result, populated on success.\n    branch_name: Name of the git branch created for this application.\n    warnings: Non-fatal notices.\n    errors: Structured error messages if ``status == \"error\"``.",
+  "properties": {
+    "status": {
+      "enum": [
+        "ok",
+        "error"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "tailored_cv": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TailoredCV"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "parsed_jd": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ParsedJD"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "ats_report": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ATSReport"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "branch_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Branch Name"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    },
+    "errors": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Errors",
+      "type": "array"
+    }
+  },
+  "required": [
+    "status"
+  ],
+  "title": "CustomCVResponse",
+  "type": "object"
+}

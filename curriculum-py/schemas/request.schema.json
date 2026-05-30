@@ -1,0 +1,37 @@
+{
+  "description": "Request payload for the ``custom-cv`` skill.\n\nAttributes:\n    task: Discriminator literal; always ``\"custom_cv\"``.\n    job_url: Public URL of the target job posting.\n    branch_slug: Optional git branch suffix. Inferred from company/title\n        if omitted.\n    cv_dir: Path to the ``content/`` directory containing Markdown files.",
+  "properties": {
+    "task": {
+      "const": "custom_cv",
+      "default": "custom_cv",
+      "title": "Task",
+      "type": "string"
+    },
+    "job_url": {
+      "title": "Job Url",
+      "type": "string"
+    },
+    "branch_slug": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Branch Slug"
+    },
+    "cv_dir": {
+      "default": "content",
+      "title": "Cv Dir",
+      "type": "string"
+    }
+  },
+  "required": [
+    "job_url"
+  ],
+  "title": "CustomCVRequest",
+  "type": "object"
+}
